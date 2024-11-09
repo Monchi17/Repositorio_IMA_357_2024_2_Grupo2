@@ -17,6 +17,12 @@ except LookupError:
     nltk.download('stopwords')
     stop_words = set(stopwords.words('spanish'))
 
+# Descargar el recurso 'punkt' necesario para word_tokenize si no está disponible
+try:
+    nltk.data.find('tokenizers/punkt')
+except LookupError:
+    nltk.download('punkt')
+    
 # Cargar archivo CSV desde el repositorio de GitHub
 url = "https://raw.githubusercontent.com/Monchi17/Repositorio_IMA_357_2024_2_Grupo2/main/eldiario_grupo_2.csv"
 df = pd.read_csv(url)
