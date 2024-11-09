@@ -34,7 +34,7 @@ st.title("App de Análisis de Documentos")
 
 # Mostrar la tabla de documentos
 st.write("Documentos procesados:")
-st.dataframe(df[['Titular', 'Cuerpo_limpio', 'Puntaje_de_representatividad', 'Documento_representativo']])
+st.dataframe(df[['Titular', 'Cuerpo_limpio']])
 
 # Input de palabra y cálculo de frecuencia
 palabra = st.text_input("Introduzca una palabra para buscar su frecuencia en el documento:")
