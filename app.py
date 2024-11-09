@@ -7,6 +7,15 @@ from sklearn.metrics.pairwise import cosine_similarity
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from collections import Counter
+import nltk
+from nltk.corpus import stopwords
+
+# Descargar datos de nltk si no están disponibles
+try:
+    stop_words = set(stopwords.words('spanish'))
+except LookupError:
+    nltk.download('stopwords')
+    stop_words = set(stopwords.words('spanish'))
 
 # Cargar archivo CSV desde el repositorio de GitHub
 url = "https://raw.githubusercontent.com/Monchi17/Repositorio_IMA_357_2024_2_Grupo2/main/eldiario_grupo_2.csv"
