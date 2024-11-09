@@ -22,6 +22,7 @@ try:
     nltk.data.find('tokenizers/punkt')
 except LookupError:
     nltk.download('punkt')
+
     
 # Cargar archivo CSV desde el repositorio de GitHub
 url = "https://raw.githubusercontent.com/Monchi17/Repositorio_IMA_357_2024_2_Grupo2/main/eldiario_grupo_2.csv"
