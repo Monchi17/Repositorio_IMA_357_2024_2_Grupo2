@@ -8,21 +8,25 @@ from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from collections import Counter
 import nltk
-from nltk.corpus import stopwords
+import os
 
-# Descargar datos de nltk si no están disponibles
+# Configurar la descarga de recursos de NLTK en un directorio específico dentro del repositorio
+nltk_data_dir = './nltk_data'
+if not os.path.exists(nltk_data_dir):
+    os.makedirs(nltk_data_dir)
+nltk.data.path.append(nltk_data_dir)
+
+# Descargar stopwords y punkt si no están disponibles
 try:
     stop_words = set(stopwords.words('spanish'))
 except LookupError:
-    nltk.download('stopwords')
+    nltk.download('stopwords', download_dir=nltk_data_dir)
     stop_words = set(stopwords.words('spanish'))
 
-# Descargar el recurso 'punkt' necesario para word_tokenize si no está disponible
 try:
     nltk.data.find('tokenizers/punkt')
 except LookupError:
-    nltk.download('punkt')
-
+    nltk.download('punkt', download_dir=nltk_data_dir)
     
 # Cargar archivo CSV desde el repositorio de GitHub
 url = "https://raw.githubusercontent.com/Monchi17/Repositorio_IMA_357_2024_2_Grupo2/main/eldiario_grupo_2.csv"
